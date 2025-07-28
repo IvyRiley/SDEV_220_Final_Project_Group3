@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CipherVault Encrypt/Decrypt</title>
+  <link rel="stylesheet" href="{% static 'css/cipherapp.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h2 class="app-title">CipherVault 2.0</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label for="text">Enter text:</label>
+      <input type="text" id="text" name="text" required>
+      <label>Method:</label>
+      <select name="method">
+       <option value="hex">Hex</option>
+      <option value="caesar">Caesar</option>
+      </select>
+
+      
+      {% if form %}
+        {{ form.as_p }}
+      {% endif %}
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="mode" value="encrypt" checked> Encrypt
+        </label>
+        <label>
+          <input type="radio" name="mode" value="decrypt"> Decrypt
+        </label>
+      </div>
+      <button class="submit-btn">Submit</button>
+    </form>
+    {% if result %}
+      <div class="result-box">{{ result }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
+
+
+<form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>

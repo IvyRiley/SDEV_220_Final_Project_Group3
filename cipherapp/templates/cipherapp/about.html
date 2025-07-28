@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+    <title>About / CipherVault 2.0 </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About</h1>
+        <p>
+            CipherVault 2.0 is a simple and secure django base encryption/decryption web app. 
+            Our goal is to help users protect sensitive information through custom-built encryption logic.
+        </p>
+        <p>
+            developed by: 
+            <p></p><strong>Riley Choe</strong> : project lead, backend development, and encryption logic, testing, deployment,
+            <p></p><strong>Richardson Fevilien</strong> : frontend design, user interface, testing, deployment,
+        </p>
+        </p>
+    </div>
+</body>
+</html>
+
+<a href="{% url 'home' %}">
+        <button type="button">Return Home</button>
+    </a>
+</div>

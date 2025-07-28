@@ -1,0 +1,14 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/cipherapp.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1 class="app-title">Welcome to CipherVault 2.0</h1>
+  <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+</body>
+<div class="container">
+  <h2>Home</h2>
+  <p>Use the links above to login or register.</p>
+  <p><a href="{% url 'about' %}">About CipherVault</a></p>
+  <form method="POST" action="{% url 'logout' %}">

@@ -1,0 +1,8 @@
+{% load static %}
+<head><link rel="stylesheet" href="{% static 'css/cipherapp.css' %}">
+<form method="post">{% csrf_token %}{{ form.as_p }}<button>Login</button></form>
+
+<a href="{% url 'home' %}">
+        <button type="button">Return Home</button>
+    </a>
+</div>

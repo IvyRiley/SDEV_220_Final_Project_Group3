@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CipherVault Shiny UI</title>
+  <link rel="stylesheet" href="{% static 'css/cipherapp.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h2>CipherVault Shiny UI</h2>
+    <form id="cipherForm">
+      <label for="text">Enter text:</label>
+      <input type="text" id="text" name="text" required>
+
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="mode" value="encrypt" checked> Encrypt
+        </label>
+        <label>
+          <input type="radio" name="mode" value="decrypt"> Decrypt
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <div class="result-box" id="result"></div>
+  </div>
+  <script>
+    document.getElementById('cipherForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const text = document.getElementById('text').value;
+      const mode = document.querySelector('input[name="mode"]:checked').value;
+      const response = await fetch('/api/cipher', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, mode })
+      });
+      const data = await response.json();
+      document.getElementById('result').textContent = data.result || data.error || '';
+    });
+  </script>
+</body>
+</html>
