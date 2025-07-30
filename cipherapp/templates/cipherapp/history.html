@@ -1,0 +1,42 @@
+{% load static %}
+<!-- Message History Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message History | CipherVault 2.0</title>
+  <link rel="stylesheet" href="{% static 'css/cipherapp.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h2 class="app-title">Message History</h2>
+    {% if messages %}
+      <ul style="padding-left: 0;">
+        {% for msg in messages %}
+          <li style="list-style: none; margin-bottom: 16px;">
+            <div class="result-box" style="margin-top:0;">
+              <strong>{{ msg.timestamp|date:"Y-m-d H:i" }}</strong><br>
+              <span>
+                Method:
+                {% if msg.method == "caesar" %}
+                  Caesar + Hex
+                {% else %}
+                  Hex
+                {% endif %}
+              </span><br>
+              <span>Original: {{ msg.original_text }}</span><br>
+              <span>Encrypted: {{ msg.encrypted_text }}</span>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div class="result-box">No messages yet.</div>
+    {% endif %}
+    <a href="{% url 'cipher' %}" style="display:block; margin-top:24px; text-align:center;">
+      <button type="button" class="submit-btn">Back to Cipher</button>
+    </a>
+  </div>
+</body>
+</html>
