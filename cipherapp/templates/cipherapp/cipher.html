@@ -42,12 +42,12 @@
 </body>
 </html>
 
-
-<form method="POST" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
-</form>
-
 <a href="{% url 'history' %}" style="display:block; margin-top:24px; text-align:center;">
   <button type="button" class="msg-history">View Message History</button>
+
+  <form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+  <button class="msg-history">Logout</button>
+  </form>
+
 </a>

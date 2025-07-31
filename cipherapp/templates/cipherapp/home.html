@@ -6,10 +6,14 @@
 </head>
 <body>
   <h1 class="app-title">Welcome to CipherVault 2.0</h1>
-  <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
 </body>
-<div class="container">
+<div class="home-container">
   <h2>Home</h2>
+
+      <a href="{% url 'login' %}" class="home-btn">Login</a>
+
+      <a href="{% url 'register' %}" class="home-btn">Register</a>
+
   <p>Use the links above to login or register.</p>
   <p><a href="{% url 'about' %}">About CipherVault</a></p>
   <form method="POST" action="{% url 'logout' %}">
